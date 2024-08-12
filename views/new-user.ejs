@@ -1,0 +1,45 @@
+<!Doctype html>
+<html>
+    <head>
+        <title>Create New User</title>
+        <link rel="stylesheet" href="/form.style.css">
+    </head>
+    <body>
+        <div class='container'>
+            <h1>Create New User</h1>
+            <form action="/user" method="post">
+                <div>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" value="<%=user.name %>" required>
+                </div>
+
+                <div>
+                    <label for="age"> Age</label>
+                    <input type="number" id="age" name="age" value="<%=user.age %>" required>
+                </div>
+
+                <div>
+                    <label for="email"> Email</label>
+                    <input type="email" id="email" name="email" value="<%=user.email %>" required>
+                </div>
+
+                <button type="submit">Create New User</button>
+                    
+            </form>
+
+            <% if(errors){%>    <!--<% %> it is used when there is js in html -->
+            <div class="error">
+                <h3>Error(s):</h3>
+                <ul>
+                    <% errors.forEach(error => {%>
+                        <li><%= error.msg %></li>
+                    <%})%>
+                </ul>
+            </div>
+        <%} %>
+        
+        </div>
+    </body>
+</html>
+
+            
